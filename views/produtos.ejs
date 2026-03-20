@@ -6,5 +6,10 @@
     <input type="text" name="name" placeholder="Nome do produto" required>
     <input type="number" name="price" placeholder="Preço do produto" required>
     <button type="submit">Adicionar Produto</button>
+</form>
+
+<form action="api/produtos/get" method="GET">
+    <button type="submit">Listar Produtos</button>
+</form>
 
 <%- include('partials/footer') %>

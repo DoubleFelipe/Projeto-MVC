@@ -11,9 +11,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', productRoutes);
 
-app.get('/sobre', (req, res) => {
-    res.render('sobre', { title: 'Sobre' });
-});
+
 app.get('/contato', (req, res) => {
     res.render('contato', { title: 'Contato' });
 } );
