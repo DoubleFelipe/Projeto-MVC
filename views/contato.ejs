@@ -1,5 +1,31 @@
 <%- include('partials/header', { title: "Home" }) %>
+<main>
+   <main class="container">
+    <h1>Contato</h1>
 
-<h1>Bem-vindo à contato</h1>
+    <form class="form-section">
+        <div class="form-group">
+            <label>Nome:</label>
+            <input type="text" placeholder="Seu nome">
+        </div>
+
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" placeholder="Seu email">
+        </div>
+
+        <div class="form-group">
+            <label>Mensagem:</label>
+            <input type="text" placeholder="Sua mensagem">
+        </div>
+
+        <button type="submit" class="btn-submit">Enviar</button>
+    </form>
+</main>
+
+
+
+</main>
+
 
 <%- include('partials/footer') %>

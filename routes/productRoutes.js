@@ -1,16 +1,17 @@
 const express = require('express');
-const router = express.Router();
 const productController = require('../controllers/productController');
+const router = express.Router();
 
-router.get('/produtos', (req, res) => {
-    res.render('produtos', { title: 'Produtos' });
-});
+// páginas
+router.get('/', productController.home);
+router.get('/sobre', productController.sobre);
+router.get('/contato', productController.contato);
 
+// CRUD de Produtos
+router.get('/produtos', productController.listProducts);
+router.post('/produtos', productController.createProduct);
+router.get('/delete/:id', productController.deleteProduct);
+router.get('/edit/:id', productController.getEditProduct);
+router.post('/edit/:id', productController.updateProduct);
 
-router.get('/api/produtos/get', productController.getAllProducts);
-router.post('/api/produtos', productController.createProduct);
-router.get('/api/produtos/:id', (req, res) => {
-    const product = products.find(p => p.id === parseInt(req.params.id));
-    if (!product) return res.status(404).json({ message: "Produto não encontrado" });
-    res.json(product);
-});
+module.exports = router;

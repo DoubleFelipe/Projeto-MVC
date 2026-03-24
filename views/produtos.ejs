@@ -1,15 +1,46 @@
-<%- include('partials/header', { title: "Produtos" }) %>
+<%- include('partials/header') %>
 
-<h1>Bem-vindo à Produtos</h1>
+<main class="container">
+    <h1>Gerenciar Produtos</h1>
 
-<form action="/produtos" method="POST">
-    <input type="text" name="name" placeholder="Nome do produto" required>
-    <input type="number" name="price" placeholder="Preço do produto" required>
-    <button type="submit">Adicionar Produto</button>
-</form>
+    <div class="form-section">
+        <h2>Adicionar Produto</h2>
+        <form action="/produtos" method="POST" class="form">
+            <div class="form-group">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" placeholder="Nome do produto" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Descrição:</label>
+                <input type="text" id="description" name="description" placeholder="Descrição" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Preço:</label>
+                <input type="number" id="price" name="price" placeholder="Preço" step="0.01" required>
+            </div>
+            <button type="submit" class="btn-submit">Adicionar</button>
+        </form>
+    </div>
 
-<form action="api/produtos/get" method="GET">
-    <button type="submit">Listar Produtos</button>
-</form>
+    <div class="products-section">
+        <h2>Produtos Cadastrados</h2>
+
+        <% if (products.length === 0) { %>
+            <p class="no-products">Nenhum produto foi cadastrado</p>
+        <% } else { %>
+            <div class="products-list">
+                <% products.forEach(product => { %>
+                    <div class="product-card">
+                        <h3><%= product.name %></h3>
+                        <p><strong>Descrição:</strong> <%= product.description %></p>
+                        <p class="price"><strong>Preço:</strong> R$ <%= product.price.toFixed(2) %></p>
+                        <a href="/edit/<%= product.id %>" class="btn-edit">Editar</a>
+                        <a href="/delete/<%= product.id %>" class="btn-delete" onclick="return confirm('Ter certeza que deseja deletar este produto?')">Deletar</a>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+</main>
 
 <%- include('partials/footer') %>

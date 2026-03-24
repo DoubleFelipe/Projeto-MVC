@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+
+<main class="container">
+    <h1>Editar Produto</h1>
+
+    <div class="form-section">
+        <form action="/edit/<%= product.id %>" method="POST" class="form">
+            <div class="form-group">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" value="<%= product.name %>" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Descrição:</label>
+                <input type="text" id="description" name="description" value="<%= product.description %>" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Preço:</label>
+                <input type="number" id="price" name="price" value="<%= product.price %>" step="0.01" required>
+            </div>
+            <button type="submit" class="btn-submit">Atualizar</button>
+        </form>
+    </div>
+
+    <a href="/produtos" class="btn-back">Voltar à lista</a>
+</main>
+
+<%- include('partials/footer') %>

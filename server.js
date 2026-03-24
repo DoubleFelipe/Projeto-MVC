@@ -1,27 +1,22 @@
 const express = require('express');
-const path = require('path');
+const path = require('node:path');
 const app = express();
-const productRoutes = require('./routes/productRoutes');
-const bodyParser = require('body-parser');
+const port = 3000;
 
-//Configura a pasta 'public' como estática
+const productRoutes = require('./routes/productRoutes');
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// arquivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
+// view engine
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/', productRoutes);
 
+// rotas
+app.use('/', productRoutes );
 
-app.get('/contato', (req, res) => {
-    res.render('contato', { title: 'Contato' });
-} );
-app.get('/produtos', (req, res) => {
-    res.render('produtos', { title: 'Produtos' });
+app.listen(port, () => {
+    console.log(`Servidor rodando em http://localhost:${port}`);
 });
-app.get('/', (req, res) => {
-   res.render('home', { title: 'Home' });
-});
-app.listen(3000, () => {
-  console.log("Servidor está rodando na porta 3000");
-});
-
