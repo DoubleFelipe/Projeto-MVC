@@ -12,4 +12,10 @@
     <a href="/sobre">Sobre</a>
     <a href="/contato">Contato</a>
     <a href="/produtos">Produtos</a>
+    <% if (user) { %>
+        <span class="nav-user">Olá, <%= user.name %></span>
+        <a href="/logout">Sair</a>
+    <% } else { %>
+        <a href="/login">Entrar</a>
+    <% } %>
 </nav>

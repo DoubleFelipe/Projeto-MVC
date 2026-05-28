@@ -15,10 +15,6 @@ body {
     
 }
 
-main {
-    flex: 1;
-
-}
 
 /* NAVBAR */
 nav {
@@ -39,6 +35,12 @@ nav a {
 
 nav a:hover {
     text-decoration: underline;
+}
+
+nav .nav-user {
+    color: #ecf0f1;
+    margin-left: auto;
+    font-weight: normal;
 }
 
 /* CONTAINER */
@@ -66,6 +68,14 @@ h2 {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+.form-login {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+}
 .form-group {
     margin-bottom: 15px;
 }
@@ -137,7 +147,7 @@ h2 {
 .btn-submit, .btn-delete {
     transition: 0.3s;
 }
-
+    
 /* BOTÃO DELETE */
 .btn-delete {
     display: inline-block;

@@ -1,9 +1,39 @@
-const { Product, products } = require('../models/productModel');
+const { Product, products } = require('../models/productModel.js');
 
 let idCounter = 1;
 
 exports.home = (req, res) => {
     res.render('home', { title: 'Home' });
+};
+
+exports.login = (req, res) => {
+    const error = req.query.error || null;
+    res.render('login', { title: 'Login', error });
+};
+
+exports.processLogin = (req, res) => {
+    const { email, password } = req.body;
+
+    // Usuário de exemplo 
+    const demoUser = { email: 'admin@admin.com', password: '1234', name: 'Admin' };
+
+    if (email === demoUser.email && password === demoUser.password) {
+        req.session.user = { email: demoUser.email, name: demoUser.name };
+        return res.redirect('/produtos');
+    }
+
+    return res.redirect('/login?error=Credenciais inválidas');
+};
+
+// Logout
+exports.logout = (req, res) => {
+    req.session.destroy(err => {
+        if (err) {
+            return res.redirect('/produtos');
+        }
+        res.clearCookie('connect.sid');
+        return res.redirect('/login');
+    });
 };
 
 exports.sobre = (req, res) => {

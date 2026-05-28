@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <form action="/login" method="POST" class="form-login">
+        <h1>Login</h1>
+        <% if (error) { %>
+            <p class="error"><%= error %></p>
+        <% } %>
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+        </div>
+        <button type="submit" class="btn-submit">Entrar</button>
+    </form>
+
+    <p>Não tem uma conta? <a href="/">Cadastre-se</a></p>
+
+    <%- include('partials/footer') %>
