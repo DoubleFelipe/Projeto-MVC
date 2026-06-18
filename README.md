@@ -6,7 +6,7 @@
 
 ## Descrição
 
-Aplicação web construída em Node.js e Express para gerenciar um catálogo simples de produtos utilizando o padrão arquitetural MVC. O sistema demonstra criação, edição, exclusão e listagem de produtos, além de autenticação de sessão e rotas protegidas.
+Aplicação web construída em Node.js e Express para gerenciar um catálogo simples de produtos utilizando o padrão arquitetura MVC. O sistema demonstra criação, edição, exclusão e listagem de produtos, além de autenticação de sessão e rotas protegidas.
 
 ## Stack Tecnológica
 
@@ -23,6 +23,16 @@ Aplicação web construída em Node.js e Express para gerenciar um catálogo sim
 - Cadastro de novos produtos
 - Edição e exclusão de produtos
 - Rotas protegidas por autenticação
+
+## Imagens do Projeto-MVC
+
+Imagem da tela principal
+
+![AQUI TERIA UMA IMAGEM DA TELA PRINCIPAL](src\public\images/Captura%20de%20tela%202026-06-18%20104951.png)
+
+Imagem da Tela de Listagem de Produtos
+
+![AQUI TERIA UMA IMAGEM DA TELA DE LISTAGEM DE PRODUTOS](src\public\images/Captura%20de%20tela%202026-06-18%20105100.png)
 
 ## Instalação
 
@@ -58,18 +68,5 @@ http://localhost:3000
 - E-mail: `admin@admin.com`
 - Senha: `1234`
 
-## Variáveis de Ambiente
-
-Configure as variáveis abaixo em um arquivo `.env` ou no seu ambiente de execução:
-
-```text
-PORT=3000
-SESSION_SECRET=minhaChaveSecreta
-NODE_ENV=development
-```
-
 > Não inclua segredos reais em arquivos versionados. Use valores seguros em produção.
 
-## Observações
-
-Este projeto serve como base para estudos e demonstração de conceitos MVC em Node.js com documentação interna via JSDoc e treinamento de boas práticas de repositório no GitHub.
